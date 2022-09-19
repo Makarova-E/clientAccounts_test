@@ -13,16 +13,17 @@ public class Client {
         accounts = new Account[maxAccounts];
     }
 
-    public void add(Account account) {
+    public boolean add(Account account) {
         for (int i = 0; i < accounts.length; i++) {
             if (accounts[i] == null) {
                 accounts[i] = account;
                 System.out.println("Добавлен счет " + account.getClass().getSimpleName());
-                return;
+                return true;
             }
 
         }
         System.out.println("Мест для добавления нового счёта нет!");
+        return false;
     }
 
     public boolean pay(int amount) {
